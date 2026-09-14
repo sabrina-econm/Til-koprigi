@@ -5,7 +5,7 @@
   <title>Til Ko'prigi - Muqova</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;0,900;1,700&display=swap" rel="stylesheet">
   
   <style>
     @page {
@@ -20,30 +20,33 @@
     }
 
     body {
-      background-color: #f0f2f5;
+      background-color: #0b192c;
       display: flex;
       justify-content: center;
       align-items: center;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      color: #1e293b;
+      color: #0f172a;
+      min-height: 100vh;
+      padding: 20px 0;
     }
 
     .cover-page {
       width: 210mm;
       height: 297mm;
-      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 50%, #f4f8fc 100%);
+      background: #ffffff;
       position: relative;
       overflow: hidden;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       padding: 16mm 18mm 14mm 18mm;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
     }
 
     @media print {
       body {
         background: none;
+        padding: 0;
       }
       .cover-page {
         box-shadow: none;
@@ -52,71 +55,129 @@
       }
     }
 
+    .bg-sunburst {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -35%);
+      width: 520px;
+      height: 520px;
+      background: radial-gradient(circle, rgba(254, 243, 199, 0.8) 0%, rgba(224, 242, 254, 0.5) 50%, rgba(255,255,255,0) 75%);
+      border-radius: 50%;
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .bg-ornament {
+      position: absolute;
+      width: 380px;
+      height: 380px;
+      border: 1px dashed rgba(2, 132, 199, 0.25);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -35%);
+      z-index: 1;
+      pointer-events: none;
+    }
+
+    .bg-ornament-2 {
+      position: absolute;
+      width: 440px;
+      height: 440px;
+      border: 1.5px solid rgba(217, 119, 6, 0.15);
+      border-radius: 50%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -35%) rotate(45deg);
+      z-index: 1;
+      pointer-events: none;
+    }
+
     .outer-border {
       position: absolute;
-      top: 8mm;
-      left: 8mm;
-      right: 8mm;
-      bottom: 8mm;
-      border: 2px solid #0284c7;
-      border-radius: 12px;
+      top: 7mm;
+      left: 7mm;
+      right: 7mm;
+      bottom: 7mm;
+      border: 2.5px solid #0284c7;
+      border-radius: 14px;
       pointer-events: none;
+      z-index: 3;
     }
 
     .inner-border {
       position: absolute;
-      top: 10mm;
-      left: 10mm;
-      right: 10mm;
-      bottom: 10mm;
-      border: 1px dashed #93c5fd;
-      border-radius: 8px;
+      top: 9mm;
+      left: 9mm;
+      right: 9mm;
+      bottom: 9mm;
+      border: 1px solid #d97706;
+      border-radius: 10px;
       pointer-events: none;
+      z-index: 3;
     }
+
+    .corner {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      border: 2px solid #0284c7;
+      z-index: 4;
+    }
+    .corner-tl { top: 12mm; left: 12mm; border-right: none; border-bottom: none; }
+    .corner-tr { top: 12mm; right: 12mm; border-left: none; border-bottom: none; }
+    .corner-bl { bottom: 12mm; left: 12mm; border-right: none; border-top: none; }
+    .corner-br { bottom: 12mm; right: 12mm; border-left: none; border-top: none; }
 
     .header {
       text-align: center;
-      z-index: 2;
+      z-index: 5;
+      margin-top: 4mm;
     }
 
     .contest-badge {
       display: inline-block;
-      font-size: 8.5pt;
-      font-weight: 700;
-      letter-spacing: 1.5px;
+      font-size: 8pt;
+      font-weight: 800;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: #0369a1;
-      background: #e0f2fe;
-      padding: 6px 16px;
+      background: #f0f9ff;
+      padding: 6px 18px;
       border-radius: 50px;
-      margin-bottom: 14px;
-      border: 1px solid #bae6fd;
+      margin-bottom: 12px;
+      border: 1.5px solid #bae6fd;
+      box-shadow: 0 2px 6px rgba(2, 132, 199, 0.08);
     }
 
     .main-title {
       font-family: 'Playfair Display', serif;
-      font-size: 38pt;
-      font-weight: 700;
+      font-size: 40pt;
+      font-weight: 900;
       color: #0c4a6e;
-      line-height: 1.1;
-      margin-bottom: 6px;
-      letter-spacing: -0.5px;
+      line-height: 1.05;
+      margin-bottom: 4px;
+      letter-spacing: 0.5px;
+      text-shadow: 0 2px 4px rgba(12, 74, 110, 0.08);
     }
 
     .sub-title {
       font-size: 13pt;
-      font-weight: 600;
+      font-weight: 700;
       font-style: italic;
-      color: #0284c7;
+      color: #d97706;
       margin-bottom: 8px;
+      letter-spacing: 0.5px;
     }
 
     .tagline {
-      font-size: 10pt;
-      color: #64748b;
-      max-width: 80%;
+      font-size: 9.5pt;
+      color: #475569;
+      max-width: 82%;
       margin: 0 auto;
-      line-height: 1.4;
+      line-height: 1.45;
+      font-weight: 500;
     }
 
     .visual-container {
@@ -125,56 +186,57 @@
       display: flex;
       justify-content: center;
       align-items: flex-end;
-      z-index: 2;
-      margin-top: 10px;
+      z-index: 5;
     }
 
     .character-img {
       max-height: 175mm;
       width: auto;
       object-fit: contain;
-      filter: drop-shadow(0 15px 20px rgba(12, 74, 110, 0.15));
+      filter: drop-shadow(0 18px 24px rgba(12, 74, 110, 0.18));
+      z-index: 6;
     }
 
     .welcome-badge {
       position: absolute;
-      top: 28%;
-      right: 6%;
+      top: 30%;
+      right: 4%;
       background: #ffffff;
       border: 2px solid #0284c7;
-      padding: 10px 18px;
-      border-radius: 20px 20px 20px 4px;
-      box-shadow: 0 10px 20px rgba(2, 132, 199, 0.15);
+      padding: 10px 16px;
+      border-radius: 18px 18px 18px 4px;
+      box-shadow: 0 8px 20px rgba(2, 132, 199, 0.15);
       text-align: left;
+      z-index: 7;
     }
 
     .welcome-badge .uz {
       display: block;
-      font-size: 12pt;
+      font-size: 11.5pt;
       font-weight: 800;
       color: #0369a1;
     }
 
     .welcome-badge .en {
       display: block;
-      font-size: 9.5pt;
+      font-size: 9pt;
       font-weight: 600;
-      color: #64748b;
+      color: #d97706;
     }
 
     .audio-pill {
       position: absolute;
-      bottom: 22%;
-      left: 4%;
-      background: rgba(255, 255, 255, 0.95);
-      border: 1px solid #cbd5e1;
-      backdrop-filter: blur(5px);
-      padding: 10px 14px;
+      bottom: 24%;
+      left: 3%;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1.5px solid #bae6fd;
+      padding: 9px 14px;
       border-radius: 12px;
       display: flex;
       align-items: center;
       gap: 10px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.06);
+      z-index: 7;
     }
 
     .audio-icon {
@@ -183,24 +245,25 @@
 
     .audio-text .title {
       font-size: 8.5pt;
-      font-weight: 700;
-      color: #0f172a;
+      font-weight: 800;
+      color: #0c4a6e;
       display: block;
     }
 
     .audio-text .desc {
       font-size: 7.5pt;
+      font-weight: 600;
       color: #64748b;
       display: block;
     }
 
     .footer {
-      border-top: 1px solid #e2e8f0;
-      padding-top: 12px;
+      border-top: 1.5px solid #e2e8f0;
+      padding-top: 10px;
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
-      z-index: 2;
+      z-index: 5;
     }
 
     .author-info {
@@ -208,23 +271,24 @@
     }
 
     .author-label {
-      font-size: 7.5pt;
+      font-size: 7pt;
       text-transform: uppercase;
-      letter-spacing: 1px;
+      letter-spacing: 1.5px;
       color: #94a3b8;
-      font-weight: 700;
+      font-weight: 800;
       margin-bottom: 2px;
     }
 
     .author-name {
-      font-size: 11pt;
-      font-weight: 700;
+      font-size: 11.5pt;
+      font-weight: 800;
       color: #0f172a;
     }
 
     .author-role {
       font-size: 8.5pt;
-      color: #64748b;
+      color: #0284c7;
+      font-weight: 600;
     }
 
     .meta-info {
@@ -233,31 +297,40 @@
 
     .guide-type {
       font-size: 8.5pt;
-      font-weight: 700;
-      color: #0284c7;
+      font-weight: 800;
+      color: #d97706;
     }
 
     .year {
       font-size: 8.5pt;
-      color: #94a3b8;
+      color: #64748b;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
 
   <div class="cover-page">
+    <div class="bg-sunburst"></div>
+    <div class="bg-ornament"></div>
+    <div class="bg-ornament-2"></div>
+
     <div class="outer-border"></div>
     <div class="inner-border"></div>
+    <div class="corner corner-tl"></div>
+    <div class="corner corner-tr"></div>
+    <div class="corner corner-bl"></div>
+    <div class="corner corner-br"></div>
 
     <header class="header">
       <div class="contest-badge">«Jonajon O'zbek Tilim» Respublika Tanloviga</div>
       <h1 class="main-title">«TIL KO‘PRIGI»</h1>
       <div class="sub-title">Language Bridge: First Steps into Uzbek</div>
-      <p class="tagline">O‘zbek xalqi samimiyati, madaniyati va mehmondo‘stligiga eltuvchi amaliy yo‘riqnoma</p>
+      <p class="tagline">O‘zbek xalqi samimiyati, boy madaniyati va mehmondo‘stligiga eltuvchi amaliy yo‘riqnoma</p>
     </header>
 
     <main class="visual-container">
-      <img src="cover.png" alt="Lola - O'zbek tili yo'riqchisi" class="character-img">
+      <img src="File_0000000095f081f4b28fa66b46034fa1.png" alt="Lola - O'zbek tili yo'riqchisi" class="character-img">
 
       <div class="welcome-badge">
         <span class="uz">Xush kelibsiz! 👋</span>
@@ -288,5 +361,5 @@
   </div>
 
 </body>
-    </html>
+  </html>
   
