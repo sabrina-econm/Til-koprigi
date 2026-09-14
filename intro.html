@@ -1,1 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 2: Welcome & Essentials — Til Ko‘prigi</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-navy: #0b3c5d;
+      --accent-gold: #c68a4c;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --paper-border: #e5e7eb;
+    }
 
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #eef2f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 30px 15px;
+      line-height: 1.5;
+    }
+
+    /* A5 Kitob varog'i o'lchami */
+    .book-page {
+      background: #ffffff;
+      width: 100%;
+      max-width: 520px;
+      min-height: 740px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid var(--paper-border);
+      padding: 36px 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #f1f5f9;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
+    }
+
+    .book-title {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--primary-navy);
+    }
+
+    .chapter-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .page-content {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .author-note {
+      border-left: 3px solid var(--primary-navy);
+      padding-left: 14px;
+    }
+
+    .author-note h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--primary-navy);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .author-note p {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-style: italic;
+      line-height: 1.6;
+    }
+
+    .author-signature {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-top: 6px;
+      font-style: normal;
+    }
+
+    .lola-insert {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      background: #fdfaf6;
+      border: 1px dashed #eedccb;
+      border-radius: 10px;
+      padding: 12px 16px;
+    }
+
+    .lola-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid var(--accent-gold);
+      flex-shrink: 0;
+    }
+
+    .lola-text h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-bottom: 3px;
+    }
+
+    .lola-text p {
+      font-size: 12px;
+      color: #555;
+      line-height: 1.45;
+    }
+
+    .quick-guide {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      background: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      border: 1px solid #edf2f7;
+    }
+
+    .phonetic-section h2 {
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary-navy);
+      margin-bottom: 8px;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 4px;
+    }
+
+    .phonetic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .phonetic-table tr {
+      border-bottom: 1px solid #f1f5f9;
+    }
+
+    .phonetic-table tr:last-child {
+      border-bottom: none;
+    }
+
+    .phonetic-table td {
+      padding: 7px 4px;
+      vertical-align: middle;
+    }
+
+    .char {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      width: 45px;
+    }
+
+    .hint {
+      color: var(--text-main);
+    }
+
+    .hint strong {
+      color: var(--primary-navy);
+    }
+
+    .hint em {
+      color: var(--accent-gold);
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1.5px solid #f1f5f9;
+      padding-top: 14px;
+      margin-top: 20px;
+    }
+
+    .page-number {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary-navy);
+    }
+
+    .page-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-nav {
+      font-size: 12px;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--primary-navy);
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--paper-border);
+      background: #fafafa;
+      transition: all 0.2s;
+    }
+
+    .btn-nav.next {
+      background: var(--primary-navy);
+      color: #ffffff;
+      border-color: var(--primary-navy);
+    }
+
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .book-page {
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+        width: 100%;
+        page-break-after: always;
+      }
+      .btn-nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="book-page">
+
+    <div class="page-header">
+      <span class="book-title">Til Ko‘prigi • Cultural Phrasebook</span>
+      <span class="chapter-tag">Introduction</span>
+    </div>
+
+    <div class="page-content">
+
+      <div class="author-note">
+        <h1>"Assalomu alaykum! Welcome to Uzbekistan."</h1>
+        <p>
+          "I created «Til Ko‘prigi» to invite international visitors into our genuine everyday life. While English will assist you in major hubs, even a few polite words spoken in Uzbek open up doors of timeless hospitality and authentic warmth."
+        </p>
+        <div class="author-signature">✦ Sabrina Botirova, Author & Creator</div>
+      </div>
+
+      <div class="lola-insert">
+        <img src="https://i.postimg.cc/T2k68xGB/file-00000000b914824681f3aaf6d30e741b.png" alt="Lola Mascot" class="lola-img">
+        <div class="lola-text">
+          <h3>Meet Lola, Your Cultural Companion</h3>
+          <p>I will guide you through each section with practical phrases, dining manners, and respectful traditions along your journey across ancient cities!</p>
+        </div>
+      </div>
+
+      <div class="quick-guide">
+        <span>🎧 <strong>Audio:</strong> Native clarity</span>
+        <span>🗣️ <strong>Phonetics:</strong> Stressed caps</span>
+        <span>💡 <strong>Etiquette:</strong> Local customs</span>
+      </div>
+
+      <div class="phonetic-section">
+        <h2>4 Unique Uzbek Sounds to Master</h2>
+        <table class="phonetic-table">
+          <tr>
+            <td class="char">O‘ o‘</td>
+            <td class="hint">Deep rounded "aw" (like <em>law</em>) • Ex: <em>O‘zbekiston</em></td>
+          </tr>
+          <tr>
+            <td class="char">G‘ g‘</td>
+            <td class="hint">Guttural throat "R" (like French <em>Paris</em>) • Ex: <em>G‘alaba</em></td>
+          </tr>
+          <tr>
+            <td class="char">Q q</td>
+            <td class="hint">Deep uvular "K" sound • Ex: <em>Qayerda?</em> (Where is it?)</td>
+          </tr>
+          <tr>
+            <td class="char">X / H</td>
+            <td class="hint"><strong>X:</strong> Raspy throat friction (<em>Xayr</em>) | <strong>H:</strong> Soft breath (<em>Hozir</em>)</td>
+          </tr>
+        </table>
+      </div>
+
+    </div>
+
+    <div class="page-footer">
+      <span class="page-number">Page 2</span>
+      <div class="page-actions">
+        <a href="index.html" class="btn-nav">← Cover</a>
+        <a href="unit1.html" class="btn-nav next">Unit 1 ➔</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+  </html>
+  
