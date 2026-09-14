@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 3: Unit 1 — Greetings & Basics</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-navy: #0b3c5d;
+      --accent-gold: #c68a4c;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --paper-border: #e5e7eb;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #eef2f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 24px 12px;
+      line-height: 1.35;
+    }
+
+    /* A5 Kitob varog'i */
+    .book-page {
+      background: #ffffff;
+      width: 100%;
+      max-width: 540px;
+      min-height: 760px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid var(--paper-border);
+      padding: 26px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #f1f5f9;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+
+    .book-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--primary-navy);
+    }
+
+    .chapter-tag {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .unit-heading h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      color: var(--primary-navy);
+      margin-bottom: 2px;
+    }
+
+    .unit-heading p {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    /* Lola maslahati bloki yangi rasm bilan */
+    .lola-tip-card {
+      background: #fdfaf6;
+      border-left: 3.5px solid var(--accent-gold);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      border-top: 1px solid #f9efe5;
+      border-right: 1px solid #f9efe5;
+      border-bottom: 1px solid #f9efe5;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .lola-mini-img {
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 1.5px solid var(--accent-gold);
+      flex-shrink: 0;
+      background: #fff;
+    }
+
+    .tip-text h4 {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-bottom: 2px;
+    }
+
+    .tip-text p {
+      font-size: 11px;
+      color: #555;
+      line-height: 1.35;
+    }
+
+    /* Lug'at jadvali */
+    .vocab-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 10.5px;
+      margin-bottom: 12px;
+    }
+
+    .vocab-table th {
+      background: #f8fafc;
+      color: var(--primary-navy);
+      text-align: left;
+      padding: 6px 5px;
+      font-weight: 700;
+      border-bottom: 1.5px solid #e2e8f0;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .vocab-table td {
+      padding: 5px 5px;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+    }
+
+    .uz-word {
+      font-weight: 700;
+      color: var(--primary-navy);
+      font-size: 11px;
+    }
+
+    .pronun {
+      color: #64748b;
+      font-style: italic;
+      font-size: 9.5px;
+      display: block;
+    }
+
+    .meaning {
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .etiquette-note {
+      color: #b45309;
+      font-size: 9.5px;
+      line-height: 1.25;
+    }
+
+    /* Sahifani to'ldiruvchi interaktiv qo'shimcha bloklar */
+    .extra-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      background: #f8fafc;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #edf2f7;
+    }
+
+    .dialogue-box h5, .culture-fact h5 {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .dialogue-box p, .culture-fact p {
+      font-size: 10px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .dialogue-line {
+      margin-bottom: 2px;
+    }
+
+    .dialogue-line strong {
+      color: var(--primary-navy);
+    }
+
+    /* Sahifaning pastki qismi */
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1.5px solid #f1f5f9;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    .page-number {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary-navy);
+    }
+
+    .page-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-nav {
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--primary-navy);
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--paper-border);
+      background: #fafafa;
+    }
+
+    .btn-nav.next {
+      background: var(--primary-navy);
+      color: #ffffff;
+      border-color: var(--primary-navy);
+    }
+
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .book-page {
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+        width: 100%;
+        page-break-after: always;
+      }
+      .btn-nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="book-page">
+
+    <!-- Sahifa header -->
+    <div class="page-header">
+      <span class="book-title">Til Ko‘prigi • Pocket Guide</span>
+      <span class="chapter-tag">Unit 1</span>
+    </div>
+
+    <div>
+      <div class="unit-heading">
+        <h1>Unit 1: Essential Greetings & Courtesies</h1>
+        <p>Master authentic Uzbek greetings and respectful everyday expressions.</p>
+      </div>
+
+      <!-- Lola's Etiquette Card (Yangi rasm bilan) -->
+      <div class="lola-tip-card">
+        <img src="https://i.postimg.cc/pybfy7z5/IMG-20260914-230444.png" alt="Lola" class="lola-mini-img">
+        <div class="tip-text">
+          <h4>💡 Lola's Cultural Etiquette: The Heart Gesture</h4>
+          <p>Place your right hand gently over your heart and bow slightly. It communicates profound warmth, respect, and humility without needing physical contact.</p>
+        </div>
+      </div>
+
+      <!-- 10 Essential Words Table -->
+      <table class="vocab-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Uzbek</th>
+            <th style="width: 25%;">Pronunciation</th>
+            <th style="width: 22%;">Meaning</th>
+            <th style="width: 28%;">Lola's Etiquette Tip</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="uz-word">Assalomu alaykum</span></td>
+            <td><span class="pronun">ah-sah-LOH-moo ah-LYE-koom</span></td>
+            <td><span class="meaning">Peace be upon you</span></td>
+            <td><span class="etiquette-note">Right hand on heart, slight bow.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Va alaykum assalom</span></td>
+            <td><span class="pronun">vah ah-LYE-koom ah-SAH-lohm</span></td>
+            <td><span class="meaning">And unto you peace</span></td>
+            <td><span class="etiquette-note">Reply with a warm, genuine smile.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Salom</span></td>
+            <td><span class="pronun">sah-LOHM</span></td>
+            <td><span class="meaning">Hi / Hello</span></td>
+            <td><span class="etiquette-note">Informal; avoid using with elders.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Rahmat</span></td>
+            <td><span class="pronun">rahkh-MAHT</span></td>
+            <td><span class="meaning">Thank you</span></td>
+            <td><span class="etiquette-note">Say <em>Katta rahmat!</em> for deep thanks.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Iltimos</span></td>
+            <td><span class="pronun">eel-tee-MOHS</span></td>
+            <td><span class="meaning">Please</span></td>
+            <td><span class="etiquette-note">Instantly softens any request.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Kechirasiz</span></td>
+            <td><span class="pronun">keh-chee-rah-SEEZ</span></td>
+            <td><span class="meaning">Excuse me / Sorry</span></td>
+            <td><span class="etiquette-note">Use when calling waitstaff politely.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Xush kelibsiz!</span></td>
+            <td><span class="pronun">khoosh keh-LEEP-seez</span></td>
+            <td><span class="meaning">Welcome!</span></td>
+            <td><span class="etiquette-note">Respond with a warm <em>Rahmat!</em></span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Yaxshimisiz?</span></td>
+            <td><span class="pronun">yakh-shee-mee-SEEZ?</span></td>
+            <td><span class="meaning">How are you?</span></td>
+            <td><span class="etiquette-note">Standard reply: <em>Yaxshi, rahmat!</em></span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Xayr</span></td>
+            <td><span class="pronun">KHYE-ur</span></td>
+            <td><span class="meaning">Goodbye</span></td>
+            <td><span class="etiquette-note">Accompany with a polite nod or wave.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Maylimi?</span></td>
+            <td><span class="pronun">mye-lee-MEE?</span></td>
+            <td><span class="meaning">May I? / Okay?</span></td>
+            <td><span class="etiquette-note">Ask before taking photos of elders.</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pastdagi bo'shliqni to'ldiruvchi mini bloklar -->
+      <div class="extra-section">
+        <div class="dialogue-box">
+          <h5>💬 Mini Practice</h5>
+          <p class="dialogue-line"><strong>Host:</strong> Assalomu alaykum! Xush kelibsiz!</p>
+          <p class="dialogue-line"><strong>You:</strong> Va alaykum assalom! Rahmat!</p>
+          <p class="dialogue-line"><strong>Host:</strong> Yaxshimisiz? — <strong>You:</strong> Yaxshi, rahmat!</p>
+        </div>
+        <div class="culture-fact">
+          <h5>✨ Cultural Note</h5>
+          <p>Asking about health and family well-being before discussing any business or questions is a cornerstone of Uzbek hospitality and courtesy.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sahifa footer -->
+    <div class="page-footer">
+      <span class="page-number">Page 3</span>
+      <div class="page-actions">
+        <a href="intro.html" class="btn-nav">← Intro</a>
+        <a href="unit2.html" class="btn-nav next">Unit 2 ➔</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+    </html>
+  
