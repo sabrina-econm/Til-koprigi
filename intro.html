@@ -3,22 +3,17 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Welcome & Guide — Til Ko‘prigi</title>
+  <title>Page 2: Welcome & Essentials — Til Ko‘prigi</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary-blue: #0b4f6c;
-      --accent-gold: #e09f3e;
-      --soft-bg: #f8fafc;
-      --card-bg: #ffffff;
-      --text-dark: #1e293b;
-      --text-muted: #64748b;
-      --border-color: #e2e8f0;
-      --shadow-sm: 0 4px 14px rgba(0, 0, 0, 0.04);
-      --shadow-md: 0 10px 25px rgba(11, 79, 108, 0.08);
-      --radius: 18px;
+      --primary-navy: #0b3c5d;
+      --accent-gold: #c68a4c;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --paper-border: #e5e7eb;
     }
 
     * {
@@ -27,400 +22,334 @@
       padding: 0;
     }
 
+    /* Brauzer fonini kitob o'qish stoli kabi qilamiz */
     body {
+      background-color: #eef2f6;
       font-family: 'Plus Jakarta Sans', sans-serif;
-      background-color: var(--soft-bg);
-      color: var(--text-dark);
-      line-height: 1.6;
-      padding: 24px 16px 60px;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 30px 15px;
+      line-height: 1.5;
     }
 
-    .container {
-      max-width: 680px;
-      margin: 0 auto;
+    /* Haqiqiy kitob varog'i (A5 Booklet Sheet) */
+    .book-page {
+      background: #ffffff;
+      width: 100%;
+      max-width: 520px; /* Kitobcha varog'ining ixcham kengligi */
+      min-height: 740px;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08), 0 1px 3px rgba(0,0,0,0.05);
+      border: 1px solid var(--paper-border);
+      padding: 36px 32px 28px;
       display: flex;
       flex-direction: column;
-      gap: 22px;
+      justify-content: space-between;
+      position: relative;
     }
 
-    /* Navigation Header */
-    .nav-header {
+    /* Kitob sarlavhasi (Header) */
+    .page-header {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding-bottom: 12px;
-      border-bottom: 2px solid var(--border-color);
+      border-bottom: 1.5px solid #f1f5f9;
+      padding-bottom: 10px;
+      margin-bottom: 20px;
     }
 
-    .nav-badge {
-      font-size: 13px;
+    .book-title {
+      font-size: 11px;
       font-weight: 700;
-      color: var(--primary-blue);
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--primary-navy);
+    }
+
+    .chapter-tag {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--accent-gold);
       text-transform: uppercase;
       letter-spacing: 1px;
     }
 
-    .page-indicator {
+    /* Kitobiy matn bloklari */
+    .page-content {
+      display: flex;
+      flex-direction: column;
+      gap: 18px;
+    }
+
+    .author-note {
+      border-left: 3px solid var(--primary-navy);
+      padding-left: 14px;
+    }
+
+    .author-note h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--primary-navy);
+      margin-bottom: 6px;
+      line-height: 1.3;
+    }
+
+    .author-note p {
       font-size: 13px;
       color: var(--text-muted);
-      font-weight: 600;
-    }
-
-    /* Author Hero Card */
-    .author-card {
-      background: linear-gradient(135deg, #0b4f6c 0%, #175a7a 100%);
-      color: #ffffff;
-      padding: 26px 22px;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow-md);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .author-card::before {
-      content: "";
-      position: absolute;
-      top: -30px;
-      right: -30px;
-      width: 140px;
-      height: 140px;
-      background: radial-gradient(circle, rgba(224, 159, 62, 0.25) 0%, transparent 70%);
-      border-radius: 50%;
-    }
-
-    .author-tag {
-      display: inline-block;
-      font-size: 11px;
-      font-weight: 700;
-      text-transform: uppercase;
-      letter-spacing: 1.2px;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 4px 10px;
-      border-radius: 20px;
-      margin-bottom: 12px;
-      color: #ffd89b;
-    }
-
-    .author-card h1 {
-      font-family: 'Playfair Display', serif;
-      font-size: 24px;
-      line-height: 1.35;
-      margin-bottom: 12px;
-    }
-
-    .author-quote {
-      font-size: 14.5px;
-      opacity: 0.94;
       font-style: italic;
-      line-height: 1.65;
+      line-height: 1.6;
     }
 
-    .author-sign {
-      margin-top: 14px;
-      font-size: 13px;
-      font-weight: 600;
-      color: #ffd89b;
+    .author-signature {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-top: 6px;
+      font-style: normal;
+    }
+
+    /* Lola kitob ichidagi illyustratsiya sifatida */
+    .lola-insert {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 16px;
+      background: #fdfaf6;
+      border: 1px dashed #eedccb;
+      border-radius: 10px;
+      padding: 12px 16px;
     }
 
-    /* Lola Companion Showcase */
-    .lola-hero-card {
-      background: linear-gradient(135deg, #fff9f0 0%, #ffffff 100%);
-      border-radius: var(--radius);
-      padding: 20px 22px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      border: 1px solid #fed7aa;
-      box-shadow: var(--shadow-sm);
-    }
-
-    .lola-portrait {
-      width: 105px;
-      height: 105px;
+    .lola-img {
+      width: 70px;
+      height: 70px;
       border-radius: 50%;
       object-fit: cover;
       object-position: top;
-      border: 3px solid var(--accent-gold);
+      border: 2px solid var(--accent-gold);
       flex-shrink: 0;
-      box-shadow: 0 4px 10px rgba(224, 159, 62, 0.25);
     }
 
-    .lola-info h3 {
-      font-size: 17px;
+    .lola-text h3 {
+      font-size: 14px;
       font-weight: 700;
-      color: var(--primary-blue);
-      margin-bottom: 6px;
+      color: var(--primary-navy);
+      margin-bottom: 3px;
     }
 
-    .lola-info p {
-      font-size: 13.5px;
-      color: var(--text-dark);
-      line-height: 1.5;
-    }
-
-    /* Section Card */
-    .section-card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      padding: 22px 20px;
-      box-shadow: var(--shadow-sm);
-      border: 1px solid var(--border-color);
-    }
-
-    .section-title {
-      font-size: 16.5px;
-      font-weight: 700;
-      color: var(--primary-blue);
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 16px;
-    }
-
-    /* Feature Items */
-    .feature-list {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-    }
-
-    .feature-item {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      padding: 12px 14px;
-      border-radius: 12px;
-      background: #f8fafc;
-      border: 1px solid #edf2f7;
-    }
-
-    .feature-icon {
-      font-size: 20px;
-      flex-shrink: 0;
-      margin-top: 1px;
-    }
-
-    .feature-text strong {
-      display: block;
-      font-size: 13.5px;
-      color: var(--primary-blue);
-      margin-bottom: 2px;
-    }
-
-    .feature-text span {
-      font-size: 12.5px;
-      color: var(--text-muted);
+    .lola-text p {
+      font-size: 12px;
+      color: #555;
       line-height: 1.45;
     }
 
-    /* Phonetic Sound Items */
-    .phonetic-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
+    /* Kitob darsligi: Maxsus tovushlar jadvali */
+    .phonetic-section h2 {
+      font-size: 13.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: var(--primary-navy);
+      margin-bottom: 8px;
+      border-bottom: 1px solid #f1f5f9;
+      padding-bottom: 4px;
     }
 
-    .sound-item {
-      display: grid;
-      grid-template-columns: 65px 1fr;
-      align-items: center;
-      padding: 12px 14px;
-      background: #ffffff;
-      border-radius: 12px;
-      border-left: 4px solid var(--accent-gold);
-      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
-      border-top: 1px solid #f1f5f9;
-      border-right: 1px solid #f1f5f9;
+    .phonetic-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 12px;
+    }
+
+    .phonetic-table tr {
       border-bottom: 1px solid #f1f5f9;
     }
 
-    .letter-badge {
-      font-size: 17px;
-      font-weight: 800;
-      color: var(--primary-blue);
+    .phonetic-table tr:last-child {
+      border-bottom: none;
     }
 
-    .sound-details {
-      font-size: 13px;
+    .phonetic-table td {
+      padding: 7px 4px;
+      vertical-align: middle;
     }
 
-    .sound-hint {
-      color: var(--text-dark);
-      font-weight: 600;
-      margin-bottom: 2px;
+    .char {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      width: 45px;
     }
 
-    .sound-example {
-      color: var(--text-muted);
+    .hint {
+      color: var(--text-main);
     }
 
-    .sound-example em {
+    .hint strong {
+      color: var(--primary-navy);
+    }
+
+    .hint em {
       color: var(--accent-gold);
       font-style: normal;
-      font-weight: 700;
+      font-weight: 600;
     }
 
-    /* Footer & Navigation Button */
-    .nav-footer {
+    /* Yo'riqnoma kichik blok */
+    .quick-guide {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      background: #f8fafc;
+      padding: 10px 14px;
+      border-radius: 8px;
+      display: flex;
+      justify-content: space-around;
+      text-align: center;
+      border: 1px solid #edf2f7;
+    }
+
+    /* Sahifaning pastki qismi (Kitob page footer) */
+    .page-footer {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-top: 12px;
-      padding-top: 16px;
-      border-top: 1px solid var(--border-color);
+      border-top: 1.5px solid #f1f5f9;
+      padding-top: 14px;
+      margin-top: 20px;
     }
 
-    .btn-back {
-      color: var(--text-muted);
+    .page-number {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary-navy);
+    }
+
+    .page-actions {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .btn-nav {
+      font-size: 12px;
+      font-weight: 700;
       text-decoration: none;
-      font-size: 14px;
-      font-weight: 600;
-    }
-
-    .btn-next {
+      color: var(--primary-navy);
       display: inline-flex;
       align-items: center;
-      gap: 8px;
-      background: var(--primary-blue);
-      color: #fff;
-      text-decoration: none;
-      font-size: 14px;
-      font-weight: 700;
-      padding: 12px 22px;
-      border-radius: 30px;
-      transition: transform 0.2s ease;
-      box-shadow: 0 4px 12px rgba(11, 79, 108, 0.2);
+      gap: 4px;
+      padding: 6px 14px;
+      border-radius: 20px;
+      border: 1px solid var(--paper-border);
+      background: #fafafa;
+      transition: all 0.2s;
     }
 
-    .btn-next:hover {
-      transform: translateY(-2px);
+    .btn-nav.next {
+      background: var(--primary-navy);
+      color: #ffffff;
+      border-color: var(--primary-navy);
     }
 
-    @media (max-width: 480px) {
-      .lola-hero-card {
-        flex-direction: column;
-        text-align: center;
+    .btn-nav:hover {
+      opacity: 0.9;
+    }
+
+    /* Chop etish (PDF) uchun maxsus qoidalar */
+    @media print {
+      body {
+        background: none;
+        padding: 0;
       }
-      .sound-item {
-        grid-template-columns: 55px 1fr;
+      .book-page {
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+        width: 100%;
+        page-break-after: always;
+      }
+      .btn-nav {
+        display: none; /* PDF-da tugmachalar chiqmaydi, faqat varoq chiqadi */
       }
     }
   </style>
 </head>
 <body>
 
-  <div class="container">
+  <!-- Kitob varog'i konteyneri -->
+  <div class="book-page">
 
-    <!-- Top Navigation Header -->
-    <div class="nav-header">
-      <span class="nav-badge">TIL KO‘PRIGI • INTRODUCTION</span>
-      <span class="page-indicator">Part 1 of 8</span>
+    <!-- Sahifa bosh sarlavhasi -->
+    <div class="page-header">
+      <span class="book-title">Til Ko‘prigi • Cultural Phrasebook</span>
+      <span class="chapter-tag">Introduction</span>
     </div>
 
-    <!-- Author Welcome Card -->
-    <div class="author-card">
-      <span class="author-tag">Creator's Note</span>
-      <h1>"Assalomu alaykum! Welcome to our land of hospitality."</h1>
-      <p class="author-quote">
-        "I created «Til Ko‘prigi» (The Language Bridge) to help international visitors experience Uzbekistan not merely as tourists, but as warmly welcomed guests. While English is spoken in key travel spots, speaking our native language opens doors to heartfelt smiles and authentic connections."
-      </p>
-      <div class="author-sign">
-        <span>✦ Sabrina Botirova</span>
-        <span style="opacity:0.75;">• Project Creator</span>
+    <!-- Sahifa asosiy mazmuni -->
+    <div class="page-content">
+
+      <!-- Muallif so'zboshisi -->
+      <div class="author-note">
+        <h1>"Assalomu alaykum! Welcome to Uzbekistan."</h1>
+        <p>
+          "I created «Til Ko‘prigi» to invite international travelers into our genuine everyday life. While English will assist you in major hubs, even a few polite words spoken in Uzbek open up doors of timeless hospitality and authentic warmth."
+        </p>
+        <div class="author-signature">✦ Sabrina Botirova, Author & Creator</div>
       </div>
-    </div>
 
-    <!-- Meet Lola Section -->
-    <div class="lola-hero-card">
-      <img src="https://i.postimg.cc/T2k68xGB/file-00000000b914824681f3aaf6d30e741b.png" alt="Lola Mascot" class="lola-portrait">
-      <div class="lola-info">
-        <h3>Meet Lola, Your Cultural Companion!</h3>
-        <p>Assalomu alaykum! I am Lola, and I will be guiding you across every section with local etiquette tips, clear pronunciations, and authentic everyday expressions.</p>
-      </div>
-    </div>
-
-    <!-- How to Navigate -->
-    <div class="section-card">
-      <h2 class="section-title">✨ How to Use This Interactive Guide</h2>
-      <div class="feature-list">
-        <div class="feature-item">
-          <div class="feature-icon">🎧</div>
-          <div class="feature-text">
-            <strong>Clear Native Audio</strong>
-            <span>Tap the speaker icons or scan page QR codes to listen to standard native pronunciation instantly.</span>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon">🗣️</div>
-          <div class="feature-text">
-            <strong>Stress & Phonetics</strong>
-            <span>Capitalized syllables show you exactly where to place vocal stress (e.g., <em>Rakh-MAT</em>).</span>
-          </div>
-        </div>
-
-        <div class="feature-item">
-          <div class="feature-icon">💡</div>
-          <div class="feature-text">
-            <strong>Lola's Cultural Tips</strong>
-            <span>Discover essential courtesies, body gestures, and dining traditions that show local respect.</span>
-          </div>
+      <!-- Lola illyustratsiyasi -->
+      <div class="lola-insert">
+        <img src="https://i.postimg.cc/T2k68xGB/file-00000000b914824681f3aaf6d30e741b.png" alt="Lola Mascot" class="lola-img">
+        <div class="lola-text">
+          <h3>Meet Lola, Your Cultural Companion</h3>
+          <p>I will guide you through each section with practical phrases, dining manners, and respectful traditions along your journey across ancient cities!</p>
         </div>
       </div>
-    </div>
 
-    <!-- Pronunciation Essentials -->
-    <div class="section-card">
-      <h2 class="section-title">🔤 4 Unique Uzbek Sounds to Master</h2>
-      <p style="font-size:13px; color:var(--text-muted); margin-bottom:14px;">
-        Uzbek uses the modern Latin script. Familiarize yourself with these 4 sounds:
-      </p>
-
-      <div class="phonetic-grid">
-        <div class="sound-item">
-          <div class="letter-badge">O‘ o‘</div>
-          <div class="sound-details">
-            <div class="sound-hint">Deep rounded "aw" (like <em>saw</em> or <em>law</em>)</div>
-            <div class="sound-example">Example: <em>O‘zbekiston</em> (Uzbekistan)</div>
-          </div>
-        </div>
-
-        <div class="sound-item">
-          <div class="letter-badge">G‘ g‘</div>
-          <div class="sound-details">
-            <div class="sound-hint">Soft guttural friction (like French or German throat <em>R</em>)</div>
-            <div class="sound-example">Example: <em>G‘alaba</em> (Victory)</div>
-          </div>
-        </div>
-
-        <div class="sound-item">
-          <div class="letter-badge">Q q</div>
-          <div class="sound-details">
-            <div class="sound-hint">Emphatic back-of-the-throat "K" sound</div>
-            <div class="sound-example">Example: <em>Qayerda?</em> (Where is it?)</div>
-          </div>
-        </div>
-
-        <div class="sound-item">
-          <div class="letter-badge">X / H</div>
-          <div class="sound-details">
-            <div class="sound-hint"><strong>X:</strong> Raspy throat friction (Scottish <em>loch</em>) <br><strong>H:</strong> Soft gentle breath (English <em>hotel</em>)</div>
-            <div class="sound-example">Example: <em>Xayr</em> (Goodbye) vs <em>Hozir</em> (Now)</div>
-          </div>
-        </div>
+      <!-- Qisqa yo'riqnoma -->
+      <div class="quick-guide">
+        <span>🎧 <strong>Audio:</strong> Native clarity</span>
+        <span>🗣️ <strong>Phonetics:</strong> Stressed caps</span>
+        <span>💡 <strong>Etiquette:</strong> Local customs</span>
       </div>
+
+      <!-- Fonetik darslik qismi -->
+      <div class="phonetic-section">
+        <h2>4 Unique Uzbek Sounds to Master</h2>
+        <table class="phonetic-table">
+          <tr>
+            <td class="char">O‘ o‘</td>
+            <td class="hint">Deep rounded "aw" (like <em>law</em>) • Ex: <em>O‘zbekiston</em></td>
+          </tr>
+          <tr>
+            <td class="char">G‘ g‘</td>
+            <td class="hint">Guttural throat "R" (like French <em>Paris</em>) • Ex: <em>G‘alaba</em></td>
+          </tr>
+          <tr>
+            <td class="char">Q q</td>
+            <td class="hint">Deep uvular "K" sound • Ex: <em>Qayerda?</em> (Where is it?)</td>
+          </tr>
+          <tr>
+            <td class="char">X / H</td>
+            <td class="hint"><strong>X:</strong> Raspy throat friction (<em>Xayr</em>) | <strong>H:</strong> Soft breath (<em>Hozir</em>)</td>
+          </tr>
+        </table>
+      </div>
+
     </div>
 
-    <!-- Navigation Footer -->
-    <div class="nav-footer">
-      <a href="index.html" class="btn-back">← Back to Cover</a>
-      <a href="unit1.html" class="btn-next">Unit 1: Greetings ➔</a>
+    <!-- Sahifa ostki qismi (Kitob raqami va navigatsiya) -->
+    <div class="page-footer">
+      <span class="page-number">Page 2</span>
+      <div class="page-actions">
+        <a href="index.html" class="btn-nav">← Cover</a>
+        <a href="unit1.html" class="btn-nav next">Unit 1 ➔</a>
+      </div>
     </div>
 
   </div>
 
 </body>
-</html>
+  </html>
+  
