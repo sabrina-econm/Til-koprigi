@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <title>Til Ko'prigi - Muqova</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700;800&family=Playfair+Display:ital,wght@0,700;1,600&display=swap" rel="stylesheet">
+  
+  <style>
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #f0f2f5;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: #1e293b;
+    }
+
+    .cover-page {
+      width: 210mm;
+      height: 297mm;
+      background: linear-gradient(180deg, #f8fbff 0%, #ffffff 50%, #f4f8fc 100%);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 16mm 18mm 14mm 18mm;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    }
+
+    @media print {
+      body {
+        background: none;
+      }
+      .cover-page {
+        box-shadow: none;
+        width: 100%;
+        height: 100%;
+      }
+    }
+
+    .outer-border {
+      position: absolute;
+      top: 8mm;
+      left: 8mm;
+      right: 8mm;
+      bottom: 8mm;
+      border: 2px solid #0284c7;
+      border-radius: 12px;
+      pointer-events: none;
+    }
+
+    .inner-border {
+      position: absolute;
+      top: 10mm;
+      left: 10mm;
+      right: 10mm;
+      bottom: 10mm;
+      border: 1px dashed #93c5fd;
+      border-radius: 8px;
+      pointer-events: none;
+    }
+
+    .header {
+      text-align: center;
+      z-index: 2;
+    }
+
+    .contest-badge {
+      display: inline-block;
+      font-size: 8.5pt;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #0369a1;
+      background: #e0f2fe;
+      padding: 6px 16px;
+      border-radius: 50px;
+      margin-bottom: 14px;
+      border: 1px solid #bae6fd;
+    }
+
+    .main-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 38pt;
+      font-weight: 700;
+      color: #0c4a6e;
+      line-height: 1.1;
+      margin-bottom: 6px;
+      letter-spacing: -0.5px;
+    }
+
+    .sub-title {
+      font-size: 13pt;
+      font-weight: 600;
+      font-style: italic;
+      color: #0284c7;
+      margin-bottom: 8px;
+    }
+
+    .tagline {
+      font-size: 10pt;
+      color: #64748b;
+      max-width: 80%;
+      margin: 0 auto;
+      line-height: 1.4;
+    }
+
+    .visual-container {
+      position: relative;
+      flex-grow: 1;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+      z-index: 2;
+      margin-top: 10px;
+    }
+
+    .character-img {
+      max-height: 175mm;
+      width: auto;
+      object-fit: contain;
+      filter: drop-shadow(0 15px 20px rgba(12, 74, 110, 0.15));
+    }
+
+    .welcome-badge {
+      position: absolute;
+      top: 28%;
+      right: 6%;
+      background: #ffffff;
+      border: 2px solid #0284c7;
+      padding: 10px 18px;
+      border-radius: 20px 20px 20px 4px;
+      box-shadow: 0 10px 20px rgba(2, 132, 199, 0.15);
+      text-align: left;
+    }
+
+    .welcome-badge .uz {
+      display: block;
+      font-size: 12pt;
+      font-weight: 800;
+      color: #0369a1;
+    }
+
+    .welcome-badge .en {
+      display: block;
+      font-size: 9.5pt;
+      font-weight: 600;
+      color: #64748b;
+    }
+
+    .audio-pill {
+      position: absolute;
+      bottom: 22%;
+      left: 4%;
+      background: rgba(255, 255, 255, 0.95);
+      border: 1px solid #cbd5e1;
+      backdrop-filter: blur(5px);
+      padding: 10px 14px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+    }
+
+    .audio-icon {
+      font-size: 18pt;
+    }
+
+    .audio-text .title {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #0f172a;
+      display: block;
+    }
+
+    .audio-text .desc {
+      font-size: 7.5pt;
+      color: #64748b;
+      display: block;
+    }
+
+    .footer {
+      border-top: 1px solid #e2e8f0;
+      padding-top: 12px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      z-index: 2;
+    }
+
+    .author-info {
+      text-align: left;
+    }
+
+    .author-label {
+      font-size: 7.5pt;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #94a3b8;
+      font-weight: 700;
+      margin-bottom: 2px;
+    }
+
+    .author-name {
+      font-size: 11pt;
+      font-weight: 700;
+      color: #0f172a;
+    }
+
+    .author-role {
+      font-size: 8.5pt;
+      color: #64748b;
+    }
+
+    .meta-info {
+      text-align: right;
+    }
+
+    .guide-type {
+      font-size: 8.5pt;
+      font-weight: 700;
+      color: #0284c7;
+    }
+
+    .year {
+      font-size: 8.5pt;
+      color: #94a3b8;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="cover-page">
+    <div class="outer-border"></div>
+    <div class="inner-border"></div>
+
+    <header class="header">
+      <div class="contest-badge">«Jonajon O'zbek Tilim» Respublika Tanloviga</div>
+      <h1 class="main-title">«TIL KO‘PRIGI»</h1>
+      <div class="sub-title">Language Bridge: First Steps into Uzbek</div>
+      <p class="tagline">O‘zbek xalqi samimiyati, madaniyati va mehmondo‘stligiga eltuvchi amaliy yo‘riqnoma</p>
+    </header>
+
+    <main class="visual-container">
+      <img src="cover.png" alt="Lola - O'zbek tili yo'riqchisi" class="character-img">
+
+      <div class="welcome-badge">
+        <span class="uz">Xush kelibsiz! 👋</span>
+        <span class="en">Welcome to Uzbekistan!</span>
+      </div>
+
+      <div class="audio-pill">
+        <span class="audio-icon">🎧</span>
+        <div class="audio-text">
+          <span class="title">Interaktiv audio talaffuzlar</span>
+          <span class="desc">Interactive Audio Guide Included</span>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="author-info">
+        <div class="author-label">Loyiha muallifi</div>
+        <div class="author-name">Botirova Sabrina</div>
+        <div class="author-role">Navoiy davlat universiteti talabasi</div>
+      </div>
+
+      <div class="meta-info">
+        <div class="guide-type">Amaliy-madaniy qo‘llanma</div>
+        <div class="year">Navoiy – 2026</div>
+      </div>
+    </footer>
+  </div>
+
+</body>
+    </html>
+  
