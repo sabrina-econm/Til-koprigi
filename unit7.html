@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 9: Unit 7 — Emergencies & Help</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-navy: #0b3c5d;
+      --accent-gold: #c68a4c;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --paper-border: #e5e7eb;
+      --light-gold: #fbf5ef;
+      --alert-red: #991b1b;
+      --alert-bg: #fef2f2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #eef2f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 24px 12px;
+      line-height: 1.35;
+    }
+
+    .book-page {
+      background: #ffffff;
+      width: 100%;
+      max-width: 540px;
+      min-height: 760px;
+      border-radius: 12px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08), 0 2px 5px rgba(0,0,0,0.05);
+      border: 1px solid var(--paper-border);
+      padding: 26px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .book-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 24px;
+      right: 24px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--alert-red), transparent);
+      opacity: 0.6;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #f1f5f9;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+
+    .book-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--primary-navy);
+    }
+
+    .chapter-tag {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--alert-red);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .unit-heading h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      color: var(--primary-navy);
+      margin-bottom: 2px;
+    }
+
+    .unit-heading p {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    /* QAT'IY KODLANGAN LOLA MASLAHAT BLOKI (QIZIL THEME) */
+    .lola-tip-card {
+      background: var(--alert-bg) !important;
+      border-left: 4px solid var(--alert-red) !important;
+      border-radius: 8px !important;
+      padding: 10px 12px !important;
+      margin-bottom: 14px !important;
+      display: flex !important;
+      flex-direction: row !important; 
+      align-items: center !important;
+      gap: 12px !important;
+      box-shadow: inset 0 0 10px rgba(153, 27, 27, 0.05);
+    }
+
+    /* RASM UCHUN QAT'IY O'LCHAMLAR */
+    .lola-mini-img {
+      width: 65px !important;
+      height: 65px !important;
+      min-width: 65px !important;
+      max-width: 65px !important;
+      border-radius: 50% !important;
+      object-fit: cover !important;
+      object-position: top center !important;
+      border: 2px solid #ffffff !important;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1) !important;
+      flex-shrink: 0 !important;
+      display: block !important;
+      background: #fff;
+    }
+
+    .tip-text {
+      flex: 1 !important;
+    }
+
+    .tip-text h4 {
+      font-size: 11.5px !important;
+      font-weight: 700 !important;
+      color: var(--alert-red) !important;
+      margin-bottom: 3px !important;
+      margin-top: 0 !important;
+    }
+
+    .tip-text p {
+      font-size: 11px !important;
+      color: #450a0a !important;
+      line-height: 1.35 !important;
+      margin: 0 !important;
+    }
+
+    /* Lug'at jadvali */
+    .vocab-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 10.5px;
+      margin-bottom: 14px;
+      border: 1px solid #edf2f7;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .vocab-table th {
+      background: var(--primary-navy);
+      color: #ffffff;
+      text-align: left;
+      padding: 7px 6px;
+      font-weight: 600;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .vocab-table td {
+      padding: 6px 6px;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+      background: #ffffff;
+    }
+
+    .vocab-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .vocab-table tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    .uz-word {
+      font-weight: 700;
+      color: var(--primary-navy);
+      font-size: 11px;
+    }
+
+    .pronun {
+      color: #64748b;
+      font-style: italic;
+      font-size: 9.5px;
+      display: block;
+    }
+
+    .meaning {
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .usage-note {
+      color: #b45309;
+      font-size: 9.5px;
+      line-height: 1.25;
+    }
+
+    .extra-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .dialogue-box, .culture-fact {
+      background: #f8fafc;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #edf2f7;
+      border-top: 2px solid var(--alert-red);
+    }
+
+    .culture-fact {
+      border-top-color: var(--primary-navy);
+    }
+
+    .dialogue-box h5, .culture-fact h5 {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .dialogue-box p, .culture-fact p {
+      font-size: 10px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .dialogue-line {
+      margin-bottom: 2px;
+    }
+
+    .dialogue-line strong {
+      color: var(--primary-navy);
+    }
+
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1.5px solid #f1f5f9;
+      padding-top: 10px;
+      margin-top: auto;
+    }
+
+    .page-number {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary-navy);
+    }
+
+    .page-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-nav {
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--primary-navy);
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--paper-border);
+      background: #fafafa;
+      transition: 0.2s;
+    }
+
+    .btn-nav.next {
+      background: var(--primary-navy);
+      color: #ffffff;
+      border-color: var(--primary-navy);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="book-page">
+
+    <div class="page-header">
+      <span class="book-title">Til Ko‘prigi • Pocket Guide</span>
+      <span class="chapter-tag">Unit 7</span>
+    </div>
+
+    <div>
+      <div class="unit-heading">
+        <h1>Unit 7: Emergencies & Help</h1>
+        <p>Essential phrases for staying safe, finding a pharmacy, or asking for help.</p>
+      </div>
+
+      <!-- Lola's Safety Card (Rasm bilan) -->
+      <div class="lola-tip-card">
+        <img src="https://i.postimg.cc/cCjn7Gf7/Bez-nazvania239-20260915191709.png" alt="Lola Pointing" class="lola-mini-img">
+        <div class="tip-text">
+          <h4>🚨 Lola's Safety Note</h4>
+          <p>Uzbekistan is very safe, but be prepared. Dial <strong>102</strong> for Police, and <strong>103</strong> for an Ambulance. Look for <strong>"Dorixona"</strong> signs for a pharmacy.</p>
+        </div>
+      </div>
+
+      <table class="vocab-table">
+        <thead>
+          <tr>
+            <th style="width: 25%;">Uzbek</th>
+            <th style="width: 26%;">Pronunciation</th>
+            <th style="width: 19%;">Meaning</th>
+            <th style="width: 30%;">Usage & Context</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="uz-word">Yordam bering!</span></td>
+            <td><span class="pronun">yor-DAHM beh-REENG</span></td>
+            <td><span class="meaning">Help me!</span></td>
+            <td><span class="usage-note">Use this to get immediate attention.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Kasalman</span></td>
+            <td><span class="pronun">kah-SAHL-mahn</span></td>
+            <td><span class="meaning">I am sick</span></td>
+            <td><span class="usage-note">Tell this to your hotel receptionist.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Dorixona qayerda?</span></td>
+            <td><span class="pronun">do-ri-kho-NAH kha-yer-DAH</span></td>
+            <td><span class="meaning">Pharmacy?</span></td>
+            <td><span class="usage-note">Many pharmacies work 24/7.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Shifokor kerak</span></td>
+            <td><span class="pronun">shi-fo-KOHR keh-RAHK</span></td>
+            <td><span class="meaning">Need a doctor</span></td>
+            <td><span class="usage-note">If you need medical professional help.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Tez yordam</span></td>
+            <td><span class="pronun">tez yor-DAHM</span></td>
+            <td><span class="meaning">Ambulance</span></td>
+            <td><span class="usage-note">Literally means "fast help".</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Og‘riyapti</span></td>
+            <td><span class="pronun">ogh-ree-YAHP-ti</span></td>
+            <td><span class="meaning">It hurts</span></td>
+            <td><span class="usage-note">Point to the area and say this.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Yo‘qolib qoldim</span></td>
+            <td><span class="pronun">yo-kho-LEEP qol-DEEM</span></td>
+            <td><span class="meaning">I am lost</span></td>
+            <td><span class="usage-note">Locals will happily guide you back.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Telefoningizni bering</span></td>
+            <td><span class="pronun">te-le-fon-in-GIZ-ni be-REENG</span></td>
+            <td><span class="meaning">Use your phone?</span></td>
+            <td><span class="usage-note">To call your guide or emergency.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Politsiya</span></td>
+            <td><span class="pronun">po-LEET-si-ya</span></td>
+            <td><span class="meaning">Police</span></td>
+            <td><span class="usage-note">Tourist police wear bright vests.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Elchixona</span></td>
+            <td><span class="pronun">el-chi-kho-NAH</span></td>
+            <td><span class="meaning">Embassy</span></td>
+            <td><span class="usage-note">Ask taxi drivers to take you there.</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div class="extra-section">
+        <div class="dialogue-box">
+          <h5>💬 At the Pharmacy</h5>
+          <p class="dialogue-line"><strong>You:</strong> Salom, men kasalman.</p>
+          <p class="dialogue-line"><strong>Pharmacist:</strong> Nima og'riyapti? <em>(What hurts?)</em></p>
+          <p class="dialogue-line"><strong>You:</strong> Boshim og'riyapti. <em>(My head hurts)</em></p>
+        </div>
+        <div class="culture-fact">
+          <h5>👮 Tourist Police</h5>
+          <p>In major tourist cities like Samarkand and Bukhara, you will see <strong>Tourist Police</strong>. They often speak English and are specifically there to help you!</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="page-footer">
+      <span class="page-number">Page 9</span>
+      <div class="page-actions">
+        <a href="unit6.html" class="btn-nav">← Unit 6</a>
+        <a href="outro.html" class="btn-nav next">Outro ➔</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+  </html>
+  
