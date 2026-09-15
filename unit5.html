@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 7: Unit 5 — Food & Dining</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-navy: #0b3c5d;
+      --accent-gold: #c68a4c;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --paper-border: #e5e7eb;
+      --light-gold: #fbf5ef;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #eef2f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 24px 12px;
+      line-height: 1.35;
+    }
+
+    /* A5 Kitob varog'i */
+    .book-page {
+      background: #ffffff;
+      width: 100%;
+      max-width: 540px;
+      min-height: 760px;
+      border-radius: 12px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08), 0 2px 5px rgba(0,0,0,0.05);
+      border: 1px solid var(--paper-border);
+      padding: 26px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .book-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 24px;
+      right: 24px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+      opacity: 0.7;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #f1f5f9;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+
+    .book-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--primary-navy);
+    }
+
+    .chapter-tag {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .unit-heading h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      color: var(--primary-navy);
+      margin-bottom: 2px;
+    }
+
+    .unit-heading p {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-style: italic;
+    }
+
+    /* Lola maslahati bloki - Yangi rasm bilan */
+    .lola-tip-card {
+      background: var(--light-gold);
+      border-left: 3.5px solid var(--accent-gold);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: inset 0 0 10px rgba(198, 138, 76, 0.05);
+    }
+
+    .lola-mini-img {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+      background: #fff;
+    }
+
+    .tip-text h4 {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-bottom: 2px;
+    }
+
+    .tip-text p {
+      font-size: 11px;
+      color: #4a3f35;
+      line-height: 1.35;
+    }
+
+    /* Lug'at jadvali */
+    .vocab-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 10.5px;
+      margin-bottom: 12px;
+      border: 1px solid #edf2f7;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .vocab-table th {
+      background: var(--primary-navy);
+      color: #ffffff;
+      text-align: left;
+      padding: 7px 6px;
+      font-weight: 600;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .vocab-table td {
+      padding: 6px 6px;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+      background: #ffffff;
+    }
+
+    .vocab-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .vocab-table tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    .uz-word {
+      font-weight: 700;
+      color: var(--primary-navy);
+      font-size: 11px;
+    }
+
+    .pronun {
+      color: #64748b;
+      font-style: italic;
+      font-size: 9.5px;
+      display: block;
+    }
+
+    .meaning {
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .usage-note {
+      color: #b45309;
+      font-size: 9.5px;
+      line-height: 1.25;
+    }
+
+    /* Sahifani to'ldiruvchi interaktiv qo'shimcha bloklar */
+    .extra-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .dialogue-box, .culture-fact {
+      background: #f8fafc;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #edf2f7;
+      border-top: 2px solid var(--primary-navy);
+    }
+
+    .culture-fact {
+      border-top-color: var(--accent-gold);
+    }
+
+    .dialogue-box h5, .culture-fact h5 {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .dialogue-box p, .culture-fact p {
+      font-size: 10px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .dialogue-line {
+      margin-bottom: 2px;
+    }
+
+    .dialogue-line strong {
+      color: var(--primary-navy);
+    }
+
+    /* Sahifaning pastki qismi */
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1.5px solid #f1f5f9;
+      padding-top: 10px;
+      margin-top: auto;
+    }
+
+    .page-number {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary-navy);
+    }
+
+    .page-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-nav {
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--primary-navy);
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--paper-border);
+      background: #fafafa;
+      transition: 0.2s;
+    }
+
+    .btn-nav.next {
+      background: var(--primary-navy);
+      color: #ffffff;
+      border-color: var(--primary-navy);
+    }
+
+    @media print {
+      body { background: none; padding: 0; }
+      .book-page { box-shadow: none; border: none; max-width: 100%; width: 100%; page-break-after: always; }
+      .btn-nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="book-page">
+
+    <div class="page-header">
+      <span class="book-title">Til Ko‘prigi • Pocket Guide</span>
+      <span class="chapter-tag">Unit 5</span>
+    </div>
+
+    <div>
+      <div class="unit-heading">
+        <h1>Unit 5: Food & Choyxona</h1>
+        <p>Savor authentic Uzbek flavors and master traditional dining etiquette.</p>
+      </div>
+
+      <!-- Lola's Etiquette Card (Piyola bilan yangi rasm) -->
+      <div class="lola-tip-card">
+        <img src="https://i.postimg.cc/ZYQpzJpm/Bez-nazvania239-20260915162751.png" alt="Lola with Tea" class="lola-mini-img">
+        <div class="tip-text">
+          <h4>💡 Lola's Tip: Bread & Tea Etiquette</h4>
+          <p>Never place bread (<strong>Non</strong>) upside down! Always tear it with your hands. When pouring tea, pour it into your bowl and back into the teapot 3 times (<em>qaytarish</em>) to properly brew it.</p>
+        </div>
+      </div>
+
+      <!-- Taomlar va Choyxona iboralari -->
+      <table class="vocab-table">
+        <thead>
+          <tr>
+            <th style="width: 24%;">Uzbek</th>
+            <th style="width: 25%;">Pronunciation</th>
+            <th style="width: 21%;">Meaning</th>
+            <th style="width: 30%;">Usage & Context</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="uz-word">Mazali!</span></td>
+            <td><span class="pronun">mah-zah-LEE</span></td>
+            <td><span class="meaning">Delicious!</span></td>
+            <td><span class="usage-note">Great compliment to the chef.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Osh / Palov</span></td>
+            <td><span class="pronun">ohsh / pah-LOHV</span></td>
+            <td><span class="meaning">Uzbek Pilaf</span></td>
+            <td><span class="usage-note">The national dish. A must-try!</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Choy</span></td>
+            <td><span class="pronun">choy</span></td>
+            <td><span class="meaning">Tea</span></td>
+            <td><span class="usage-note">Specify "Ko'k" (Green) or "Qora" (Black).</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Go‘sht</span></td>
+            <td><span class="pronun">goosht</span></td>
+            <td><span class="meaning">Meat</span></td>
+            <td><span class="usage-note">Usually beef or lamb.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Suv</span></td>
+            <td><span class="pronun">soov</span></td>
+            <td><span class="meaning">Water</span></td>
+            <td><span class="usage-note">"Gazsiz suv" means still water.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Qornim to‘q</span></td>
+            <td><span class="pronun">qohr-NEEM tookq</span></td>
+            <td><span class="meaning">I am full</span></td>
+            <td><span class="usage-note">Polite way to refuse more food.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Hisob, iltimos</span></td>
+            <td><span class="pronun">hee-SOHP eel-ti-MOHS</span></td>
+            <td><span class="meaning">The bill, please</span></td>
+            <td><span class="usage-note">Ask the waiter when ready to pay.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Achchiq emasmi?</span></td>
+            <td><span class="pronun">ahch-CHIHQ eh-MAHS-mee</span></td>
+            <td><span class="meaning">Is it spicy?</span></td>
+            <td><span class="usage-note">Useful if you prefer mild food.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Go‘shtsiz bormi?</span></td>
+            <td><span class="pronun">goosht-SEEZ bohr-MEE</span></td>
+            <td><span class="meaning">Anything meatless?</span></td>
+            <td><span class="usage-note">Helpful phrase for vegetarians.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Somsangiz bormi?</span></td>
+            <td><span class="pronun">sohm-sahn-GEEZ bohr-mee</span></td>
+            <td><span class="meaning">Have Somsa?</span></td>
+            <td><span class="usage-note">Somsa is a baked savory pastry.</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pastdagi mini bloklar -->
+      <div class="extra-section">
+        <div class="dialogue-box">
+          <h5>💬 Ordering Food</h5>
+          <p class="dialogue-line"><strong>You:</strong> Menu bering, iltimos.</p>
+          <p class="dialogue-line"><strong>Waiter:</strong> Marhamat. Nima yeysiz?</p>
+          <p class="dialogue-line"><strong>You:</strong> Bitta Osh va ko'k choy.</p>
+          <p class="dialogue-line"><strong>Waiter:</strong> Hozir keladi!</p>
+        </div>
+        <div class="culture-fact">
+          <h5>🪑 The Tapchan</h5>
+          <p>In traditional Choyxonas (teahouses), you may sit cross-legged on a raised wooden platform called a <strong>Tapchan</strong>. Always take your shoes off before stepping on it!</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sahifa footer -->
+    <div class="page-footer">
+      <span class="page-number">Page 7</span>
+      <div class="page-actions">
+        <a href="unit4.html" class="btn-nav">← Unit 4</a>
+        <a href="unit6.html" class="btn-nav next">Finish ➔</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+  </html>
+  
