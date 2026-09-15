@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 4: Unit 2 — Bazaar & Shopping</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-navy: #0b3c5d;
+      --accent-gold: #c68a4c;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --paper-border: #e5e7eb;
+      --light-gold: #fbf5ef;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #eef2f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 24px 12px;
+      line-height: 1.35;
+    }
+
+    /* A5 Kitob varog'i - Nafis bezakli */
+    .book-page {
+      background: #ffffff;
+      width: 100%;
+      max-width: 540px;
+      min-height: 760px;
+      border-radius: 12px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08), 0 2px 5px rgba(0,0,0,0.05);
+      border: 1px solid var(--paper-border);
+      padding: 26px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    /* Tepadagi nafis tillarang chiziq */
+    .book-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 24px;
+      right: 24px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
+      opacity: 0.7;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #f1f5f9;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+
+    .book-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--primary-navy);
+    }
+
+    .chapter-tag {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--accent-gold);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .unit-heading h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 19px;
+      color: var(--primary-navy);
+      margin-bottom: 2px;
+    }
+
+    .unit-heading p {
+      font-size: 11.5px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+      font-style: italic;
+    }
+
+    /* Lola maslahati bloki - Issiq rangda */
+    .lola-tip-card {
+      background: var(--light-gold);
+      border-left: 3.5px solid var(--accent-gold);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      box-shadow: inset 0 0 10px rgba(198, 138, 76, 0.05);
+    }
+
+    .lola-mini-img {
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+      background: #fff;
+    }
+
+    .tip-text h4 {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-bottom: 2px;
+    }
+
+    .tip-text p {
+      font-size: 11px;
+      color: #4a3f35;
+      line-height: 1.35;
+    }
+
+    /* Lug'at jadvali - Didli dizayn */
+    .vocab-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0;
+      font-size: 10.5px;
+      margin-bottom: 12px;
+      border: 1px solid #edf2f7;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .vocab-table th {
+      background: var(--primary-navy);
+      color: #ffffff;
+      text-align: left;
+      padding: 7px 6px;
+      font-weight: 600;
+      font-size: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .vocab-table td {
+      padding: 6px 6px;
+      border-bottom: 1px solid #f1f5f9;
+      vertical-align: middle;
+      background: #ffffff;
+    }
+
+    .vocab-table tr:last-child td {
+      border-bottom: none;
+    }
+
+    .vocab-table tr:nth-child(even) td {
+      background: #fafafa;
+    }
+
+    .uz-word {
+      font-weight: 700;
+      color: var(--primary-navy);
+      font-size: 11px;
+    }
+
+    .pronun {
+      color: #64748b;
+      font-style: italic;
+      font-size: 9.5px;
+      display: block;
+    }
+
+    .meaning {
+      font-weight: 600;
+      color: #1e293b;
+    }
+
+    .etiquette-note {
+      color: #b45309;
+      font-size: 9.5px;
+      line-height: 1.25;
+    }
+
+    /* Sahifani to'ldiruvchi interaktiv qo'shimcha bloklar */
+    .extra-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .dialogue-box, .culture-fact {
+      background: #f8fafc;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid #edf2f7;
+      border-top: 2px solid var(--primary-navy);
+    }
+
+    .culture-fact {
+      border-top-color: var(--accent-gold);
+    }
+
+    .dialogue-box h5, .culture-fact h5 {
+      font-size: 10.5px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .dialogue-box p, .culture-fact p {
+      font-size: 10px;
+      color: var(--text-muted);
+      line-height: 1.35;
+    }
+
+    .dialogue-line {
+      margin-bottom: 3px;
+    }
+
+    .dialogue-line strong {
+      color: var(--primary-navy);
+    }
+
+    /* Sahifaning pastki qismi */
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1.5px solid #f1f5f9;
+      padding-top: 10px;
+      margin-top: 10px;
+    }
+
+    .page-number {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary-navy);
+    }
+
+    .page-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-nav {
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--primary-navy);
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--paper-border);
+      background: #fafafa;
+      transition: 0.2s;
+    }
+
+    .btn-nav.next {
+      background: var(--primary-navy);
+      color: #ffffff;
+      border-color: var(--primary-navy);
+    }
+
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .book-page {
+        box-shadow: none;
+        border: none;
+        max-width: 100%;
+        width: 100%;
+        page-break-after: always;
+      }
+      .btn-nav {
+        display: none;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="book-page">
+
+    <!-- Sahifa header -->
+    <div class="page-header">
+      <span class="book-title">Til Ko‘prigi • Pocket Guide</span>
+      <span class="chapter-tag">Unit 2</span>
+    </div>
+
+    <div>
+      <div class="unit-heading">
+        <h1>Unit 2: Navigating the Bazaar</h1>
+        <p>Master the art of bargaining and friendly market interactions.</p>
+      </div>
+
+      <!-- Lola's Etiquette Card (Patir nonli rasm) -->
+      <div class="lola-tip-card">
+        <img src="https://i.postimg.cc/NMQWFPDn/file-00000000d4b481f4a93114254609a911.png" alt="Lola with Bread" class="lola-mini-img">
+        <div class="tip-text">
+          <h4>💡 Lola's Guide to Bargaining</h4>
+          <p>Bargaining at traditional bazaars is a friendly interaction, not an argument. Do it with a smile! However, prices in supermarkets and pharmacies are final.</p>
+        </div>
+      </div>
+
+      <!-- 10 Essential Words Table -->
+      <table class="vocab-table">
+        <thead>
+          <tr>
+            <th style="width: 23%;">Uzbek</th>
+            <th style="width: 25%;">Pronunciation</th>
+            <th style="width: 23%;">Meaning</th>
+            <th style="width: 29%;">Lola's Etiquette Tip</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="uz-word">Qancha?</span></td>
+            <td><span class="pronun">KHAHN-chah?</span></td>
+            <td><span class="meaning">How much?</span></td>
+            <td><span class="etiquette-note">Use this while pointing at items.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Juda qimmat</span></td>
+            <td><span class="pronun">joo-DAH kheem-MAHT</span></td>
+            <td><span class="meaning">Very expensive</span></td>
+            <td><span class="etiquette-note">Say it playfully, not angrily.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Arzonroq bering</span></td>
+            <td><span class="pronun">ahr-zohn-ROK beh-REENG</span></td>
+            <td><span class="meaning">Lower the price</span></td>
+            <td><span class="etiquette-note">The classic bargaining phrase.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Men olaman</span></td>
+            <td><span class="pronun">men oh-lah-MAHN</span></td>
+            <td><span class="meaning">I will take it</span></td>
+            <td><span class="etiquette-note">Said when you agree on the price.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Faqat ko‘ryapman</span></td>
+            <td><span class="pronun">fah-QAHT koor-yahp-MAHN</span></td>
+            <td><span class="meaning">I'm just looking</span></td>
+            <td><span class="etiquette-note">Polite way to decline a seller.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">... bormi?</span></td>
+            <td><span class="pronun">... BOHR-mee?</span></td>
+            <td><span class="meaning">Do you have...?</span></td>
+            <td><span class="etiquette-note">Put the item name before 'bormi'.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Tatib ko‘rsam...</span></td>
+            <td><span class="pronun">tah-TEEP koor-SAHM</span></td>
+            <td><span class="meaning">May I taste it?</span></td>
+            <td><span class="etiquette-note">Always ask before tasting nuts/fruit.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Yarim kilo</span></td>
+            <td><span class="pronun">yah-REEM kee-LOH</span></td>
+            <td><span class="meaning">Half a kilo</span></td>
+            <td><span class="etiquette-note">Common measurement at markets.</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Karta o‘tadimi?</span></td>
+            <td><span class="pronun">KAHR-tah oo-tah-dee-MEE</span></td>
+            <td><span class="meaning">Accept cards?</span></td>
+            <td><span class="etiquette-note">Bazaars are usually cash-only!</span></td>
+          </tr>
+          <tr>
+            <td><span class="uz-word">Naqd pul</span></td>
+            <td><span class="pronun">NAHQD pool</span></td>
+            <td><span class="meaning">Cash</span></td>
+            <td><span class="etiquette-note">Keep small bills for easy change.</span></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <!-- Pastdagi mini bloklar -->
+      <div class="extra-section">
+        <div class="dialogue-box">
+          <h5>💬 Mini Practice</h5>
+          <p class="dialogue-line"><strong>You:</strong> Bu qancha?</p>
+          <p class="dialogue-line"><strong>Seller:</strong> O'n ming so'm.</p>
+          <p class="dialogue-line"><strong>You:</strong> Juda qimmat. Arzonroq bering?</p>
+          <p class="dialogue-line"><strong>Seller:</strong> Mayli, sakkiz ming.</p>
+        </div>
+        <div class="culture-fact">
+          <h5>✨ Tasting Culture</h5>
+          <p>Walking through a bazaar, sellers will often offer you free samples of dried fruits, nuts, or sweets. It's a sign of pride in their goods!</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sahifa footer -->
+    <div class="page-footer">
+      <span class="page-number">Page 4</span>
+      <div class="page-actions">
+        <a href="unit1.html" class="btn-nav">← Unit 1</a>
+        <a href="#" class="btn-nav next">Unit 3 ➔</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+</html>
