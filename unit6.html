@@ -99,27 +99,42 @@
       font-style: italic;
     }
 
-    /* Rasmsiz chiroyli eslatma bloki */
-    .info-card {
+    /* Lola maslahati bloki */
+    .lola-tip-card {
       background: var(--light-gold);
-      border-left: 4px solid var(--accent-gold);
-      border-radius: 6px;
-      padding: 10px 14px;
-      margin-bottom: 14px;
+      border-left: 3.5px solid var(--accent-gold);
+      border-radius: 8px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
       box-shadow: inset 0 0 10px rgba(198, 138, 76, 0.05);
     }
 
-    .info-card h4 {
+    .lola-mini-img {
+      width: 62px;
+      height: 62px;
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: top;
+      border: 2px solid #ffffff;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+      background: #fff;
+    }
+
+    .tip-text h4 {
       font-size: 11.5px;
       font-weight: 700;
       color: var(--primary-navy);
-      margin-bottom: 3px;
+      margin-bottom: 2px;
     }
 
-    .info-card p {
+    .tip-text p {
       font-size: 11px;
       color: #4a3f35;
-      line-height: 1.4;
+      line-height: 1.35;
     }
 
     /* Lug'at jadvali */
@@ -287,7 +302,7 @@
         <p>Master the unwritten rules of Uzbek culture and respectful behavior.</p>
       </div>
 
-      <!-- Lola's Etiquette Card (O'ychan Lola rasmi bilan) -->
+      <!-- Lola's Etiquette Card -->
       <div class="lola-tip-card">
         <img src="https://i.postimg.cc/0Nr8pK25/Bez-nazvania239-20260915183024.png" alt="Lola Thinking" class="lola-mini-img">
         <div class="tip-text">
@@ -398,4 +413,5 @@
   </div>
 
 </body>
-</html>
+  </html>
+        
