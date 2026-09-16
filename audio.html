@@ -1,1 +1,271 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Til Ko'prigi — Audio Hub</title>
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: system-ui, -apple-system, sans-serif;
+      background: #f1f5f9;
+      display: flex;
+      justify-content: center;
+      padding: 16px 10px;
+    }
+    .card {
+      width: 100%;
+      max-width: 480px;
+      background: #ffffff;
+      border-radius: 14px;
+      padding: 20px 16px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+      border-top: 4px solid #0b3c5d;
+    }
+    .header {
+      text-align: center;
+      border-bottom: 2px dashed #cbd5e1;
+      padding-bottom: 12px;
+      margin-bottom: 14px;
+    }
+    .header h1 {
+      font-size: 19px;
+      color: #0b3c5d;
+    }
+    .header p {
+      font-size: 11px;
+      color: #64748b;
+      margin-top: 3px;
+    }
+    .tabs {
+      display: flex;
+      gap: 6px;
+      overflow-x: auto;
+      padding-bottom: 8px;
+      margin-bottom: 14px;
+      -webkit-overflow-scrolling: touch;
+    }
+    .tab {
+      flex: 0 0 auto;
+      background: #f1f5f9;
+      border: 1px solid #cbd5e1;
+      color: #334155;
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 11px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .tab.active {
+      background: #0b3c5d;
+      color: #ffffff;
+      border-color: #0b3c5d;
+    }
+    .unit-panel {
+      display: none;
+    }
+    .unit-panel.show {
+      display: block;
+    }
+    .unit-heading {
+      font-size: 12px;
+      font-weight: bold;
+      color: #c68a4c;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 8px;
+      padding: 8px 12px;
+      margin-bottom: 6px;
+    }
+    .uz {
+      font-size: 14px;
+      font-weight: bold;
+      color: #0b3c5d;
+      display: block;
+    }
+    .en {
+      font-size: 11px;
+      color: #64748b;
+    }
+    .btn-play {
+      background: #0b3c5d;
+      color: #ffffff;
+      border: none;
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 14px;
+      cursor: pointer;
+    }
+    .btn-play:active {
+      background: #c68a4c;
+    }
+  </style>
+</head>
+<body>
 
+<div class="card">
+  <div class="header">
+    <h1>🎧 Audio Pronunciation Hub</h1>
+    <p>Ovozni eshitish uchun ▶ tugmasini bosing</p>
+  </div>
+
+  <!-- TABS -->
+  <div class="tabs">
+    <button class="tab active" onclick="showUnit(1, this)">1: Greetings</button>
+    <button class="tab" onclick="showUnit(2, this)">2: Market</button>
+    <button class="tab" onclick="showUnit(3, this)">3: Numbers</button>
+    <button class="tab" onclick="showUnit(4, this)">4: Transport</button>
+    <button class="tab" onclick="showUnit(5, this)">5: Food</button>
+    <button class="tab" onclick="showUnit(6, this)">6: Culture</button>
+    <button class="tab" onclick="showUnit(7, this)">7: Emergency</button>
+  </div>
+
+  <!-- UNIT 1 -->
+  <div id="u1" class="unit-panel show">
+    <div class="unit-heading">Unit 1: Greetings & Basics</div>
+    <div class="item"><div><span class="uz">Assalomu alaykum</span><span class="en">Peace be upon you</span></div><button class="btn-play" onclick="playSpeech('Assalomu alaykum')">▶</button></div>
+    <div class="item"><div><span class="uz">Salom</span><span class="en">Hello</span></div><button class="btn-play" onclick="playSpeech('Salom')">▶</button></div>
+    <div class="item"><div><span class="uz">Yaxshimisiz?</span><span class="en">How are you?</span></div><button class="btn-play" onclick="playSpeech('Yaxshimisiz')">▶</button></div>
+    <div class="item"><div><span class="uz">Rahmat</span><span class="en">Thank you</span></div><button class="btn-play" onclick="playSpeech('Rahmat')">▶</button></div>
+    <div class="item"><div><span class="uz">Iltimos</span><span class="en">Please</span></div><button class="btn-play" onclick="playSpeech('Iltimos')">▶</button></div>
+    <div class="item"><div><span class="uz">Ha / Yo‘q</span><span class="en">Yes / No</span></div><button class="btn-play" onclick="playSpeech('Ha, yoq')">▶</button></div>
+    <div class="item"><div><span class="uz">Kechirasiz</span><span class="en">Excuse me</span></div><button class="btn-play" onclick="playSpeech('Kechirasiz')">▶</button></div>
+    <div class="item"><div><span class="uz">Xayr</span><span class="en">Goodbye</span></div><button class="btn-play" onclick="playSpeech('Xayr')">▶</button></div>
+    <div class="item"><div><span class="uz">Ismingiz nima?</span><span class="en">What is your name?</span></div><button class="btn-play" onclick="playSpeech('Ismingiz nima')">▶</button></div>
+    <div class="item"><div><span class="uz">Tushunmadim</span><span class="en">I don't understand</span></div><button class="btn-play" onclick="playSpeech('Tushunmadim')">▶</button></div>
+  </div>
+
+  <!-- UNIT 2 -->
+  <div id="u2" class="unit-panel">
+    <div class="unit-heading">Unit 2: At the Bazaar</div>
+    <div class="item"><div><span class="uz">Bu qancha turadi?</span><span class="en">How much does this cost?</span></div><button class="btn-play" onclick="playSpeech('Bu qancha turadi')">▶</button></div>
+    <div class="item"><div><span class="uz">Qimmat</span><span class="en">Expensive</span></div><button class="btn-play" onclick="playSpeech('Qimmat')">▶</button></div>
+    <div class="item"><div><span class="uz">Arzonroq qiling</span><span class="en">Make it cheaper</span></div><button class="btn-play" onclick="playSpeech('Arzonroq qiling')">▶</button></div>
+    <div class="item"><div><span class="uz">Bozor</span><span class="en">Market</span></div><button class="btn-play" onclick="playSpeech('Bozor')">▶</button></div>
+    <div class="item"><div><span class="uz">Non</span><span class="en">Bread</span></div><button class="btn-play" onclick="playSpeech('Non')">▶</button></div>
+    <div class="item"><div><span class="uz">Choy</span><span class="en">Tea</span></div><button class="btn-play" onclick="playSpeech('Choy')">▶</button></div>
+    <div class="item"><div><span class="uz">Suv</span><span class="en">Water</span></div><button class="btn-play" onclick="playSpeech('Suv')">▶</button></div>
+    <div class="item"><div><span class="uz">Karta bormi?</span><span class="en">Do you take cards?</span></div><button class="btn-play" onclick="playSpeech('Karta bormi')">▶</button></div>
+    <div class="item"><div><span class="uz">Naqd pul</span><span class="en">Cash</span></div><button class="btn-play" onclick="playSpeech('Naqd pul')">▶</button></div>
+    <div class="item"><div><span class="uz">Olaman</span><span class="en">I will take it</span></div><button class="btn-play" onclick="playSpeech('Olaman')">▶</button></div>
+  </div>
+
+  <!-- UNIT 3 -->
+  <div id="u3" class="unit-panel">
+    <div class="unit-heading">Unit 3: Numbers & Money</div>
+    <div class="item"><div><span class="uz">Bir, Ikki, Uch</span><span class="en">1, 2, 3</span></div><button class="btn-play" onclick="playSpeech('Bir, Ikki, Uch')">▶</button></div>
+    <div class="item"><div><span class="uz">To‘rt, Besh, Olti</span><span class="en">4, 5, 6</span></div><button class="btn-play" onclick="playSpeech('Tort, Besh, Olti')">▶</button></div>
+    <div class="item"><div><span class="uz">Yetti, Sakkiz, To‘qqiz</span><span class="en">7, 8, 9</span></div><button class="btn-play" onclick="playSpeech('Yetti, Sakkiz, Toqqiz')">▶</button></div>
+    <div class="item"><div><span class="uz">O‘n</span><span class="en">10</span></div><button class="btn-play" onclick="playSpeech('On')">▶</button></div>
+    <div class="item"><div><span class="uz">Yuz</span><span class="en">100</span></div><button class="btn-play" onclick="playSpeech('Yuz')">▶</button></div>
+    <div class="item"><div><span class="uz">Ming</span><span class="en">1,000</span></div><button class="btn-play" onclick="playSpeech('Ming')">▶</button></div>
+    <div class="item"><div><span class="uz">O‘n ming so‘m</span><span class="en">10,000 UZS</span></div><button class="btn-play" onclick="playSpeech('On ming som')">▶</button></div>
+    <div class="item"><div><span class="uz">Yuz ming so‘m</span><span class="en">100,000 UZS</span></div><button class="btn-play" onclick="playSpeech('Yuz ming som')">▶</button></div>
+    <div class="item"><div><span class="uz">Qaytim</span><span class="en">Change (Money)</span></div><button class="btn-play" onclick="playSpeech('Qaytim')">▶</button></div>
+    <div class="item"><div><span class="uz">Hisob</span><span class="en">Bill / Check</span></div><button class="btn-play" onclick="playSpeech('Hisob')">▶</button></div>
+  </div>
+
+  <!-- UNIT 4 -->
+  <div id="u4" class="unit-panel">
+    <div class="unit-heading">Unit 4: Transport & Directions</div>
+    <div class="item"><div><span class="uz">Qayerda?</span><span class="en">Where is...?</span></div><button class="btn-play" onclick="playSpeech('Qayerda')">▶</button></div>
+    <div class="item"><div><span class="uz">Aeroport</span><span class="en">Airport</span></div><button class="btn-play" onclick="playSpeech('Aeroport')">▶</button></div>
+    <div class="item"><div><span class="uz">Vokzal</span><span class="en">Train station</span></div><button class="btn-play" onclick="playSpeech('Vokzal')">▶</button></div>
+    <div class="item"><div><span class="uz">Taksi</span><span class="en">Taxi</span></div><button class="btn-play" onclick="playSpeech('Taksi')">▶</button></div>
+    <div class="item"><div><span class="uz">To‘xtating</span><span class="en">Stop here</span></div><button class="btn-play" onclick="playSpeech('Toxtating')">▶</button></div>
+    <div class="item"><div><span class="uz">O‘ngga / Chapga</span><span class="en">Right / Left</span></div><button class="btn-play" onclick="playSpeech('Ongga, Chapga')">▶</button></div>
+    <div class="item"><div><span class="uz">To‘g‘riga</span><span class="en">Straight</span></div><button class="btn-play" onclick="playSpeech('Togriga')">▶</button></div>
+    <div class="item"><div><span class="uz">Yaqin / Uzoq</span><span class="en">Near / Far</span></div><button class="btn-play" onclick="playSpeech('Yaqin, Uzoq')">▶</button></div>
+    <div class="item"><div><span class="uz">Avtobus</span><span class="en">Bus</span></div><button class="btn-play" onclick="playSpeech('Avtobus')">▶</button></div>
+    <div class="item"><div><span class="uz">Mehmonxona</span><span class="en">Hotel</span></div><button class="btn-play" onclick="playSpeech('Mehmonxona')">▶</button></div>
+  </div>
+
+  <!-- UNIT 5 -->
+  <div id="u5" class="unit-panel">
+    <div class="unit-heading">Unit 5: Food & Dining</div>
+    <div class="item"><div><span class="uz">Osh (Palov)</span><span class="en">Pilaf</span></div><button class="btn-play" onclick="playSpeech('Osh')">▶</button></div>
+    <div class="item"><div><span class="uz">Somsa</span><span class="en">Samsa</span></div><button class="btn-play" onclick="playSpeech('Somsa')">▶</button></div>
+    <div class="item"><div><span class="uz">Shashlik</span><span class="en">Kebab</span></div><button class="btn-play" onclick="playSpeech('Shashlik')">▶</button></div>
+    <div class="item"><div><span class="uz">Mazali</span><span class="en">Delicious</span></div><button class="btn-play" onclick="playSpeech('Mazali')">▶</button></div>
+    <div class="item"><div><span class="uz">Achchiq</span><span class="en">Spicy</span></div><button class="btn-play" onclick="playSpeech('Achchiq')">▶</button></div>
+    <div class="item"><div><span class="uz">Go‘shtsiz</span><span class="en">Without meat</span></div><button class="btn-play" onclick="playSpeech('Goshtsiz')">▶</button></div>
+    <div class="item"><div><span class="uz">Ko‘k choy</span><span class="en">Green tea</span></div><button class="btn-play" onclick="playSpeech('Kok choy')">▶</button></div>
+    <div class="item"><div><span class="uz">Qora choy</span><span class="en">Black tea</span></div><button class="btn-play" onclick="playSpeech('Qora choy')">▶</button></div>
+    <div class="item"><div><span class="uz">Meva</span><span class="en">Fruit</span></div><button class="btn-play" onclick="playSpeech('Meva')">▶</button></div>
+    <div class="item"><div><span class="uz">Osh bo‘lsin!</span><span class="en">Bon appetit!</span></div><button class="btn-play" onclick="playSpeech('Osh bolsin')">▶</button></div>
+  </div>
+
+  <!-- UNIT 6 -->
+  <div id="u6" class="unit-panel">
+    <div class="unit-heading">Unit 6: Etiquette & Hospitality</div>
+    <div class="item"><div><span class="uz">Ruxsatmi?</span><span class="en">May I?</span></div><button class="btn-play" onclick="playSpeech('Ruxsatmi')">▶</button></div>
+    <div class="item"><div><span class="uz">Mehmon</span><span class="en">Guest</span></div><button class="btn-play" onclick="playSpeech('Mehmon')">▶</button></div>
+    <div class="item"><div><span class="uz">Qani, oling!</span><span class="en">Help yourself!</span></div><button class="btn-play" onclick="playSpeech('Qani oling')">▶</button></div>
+    <div class="item"><div><span class="uz">Omin!</span><span class="en">Amen</span></div><button class="btn-play" onclick="playSpeech('Omin')">▶</button></div>
+    <div class="item"><div><span class="uz">Uzr</span><span class="en">Sorry</span></div><button class="btn-play" onclick="playSpeech('Uzr')">▶</button></div>
+    <div class="item"><div><span class="uz">Katta rahmat</span><span class="en">Thank you so much</span></div><button class="btn-play" onclick="playSpeech('Katta rahmat')">▶</button></div>
+    <div class="item"><div><span class="uz">To‘ydim</span><span class="en">I am full</span></div><button class="btn-play" onclick="playSpeech('Toydim')">▶</button></div>
+    <div class="item"><div><span class="uz">Qulluq</span><span class="en">Thanks (humble)</span></div><button class="btn-play" onclick="playSpeech('Qulluq')">▶</button></div>
+    <div class="item"><div><span class="uz">Poyabzal</span><span class="en">Shoes</span></div><button class="btn-play" onclick="playSpeech('Poyabzal')">▶</button></div>
+    <div class="item"><div><span class="uz">Xush kelibsiz!</span><span class="en">Welcome!</span></div><button class="btn-play" onclick="playSpeech('Xush kelibsiz')">▶</button></div>
+  </div>
+
+  <!-- UNIT 7 -->
+  <div id="u7" class="unit-panel">
+    <div class="unit-heading">Unit 7: Emergencies & Help</div>
+    <div class="item"><div><span class="uz">Yordam bering!</span><span class="en">Help me!</span></div><button class="btn-play" onclick="playSpeech('Yordam bering')">▶</button></div>
+    <div class="item"><div><span class="uz">Kasalman</span><span class="en">I am sick</span></div><button class="btn-play" onclick="playSpeech('Kasalman')">▶</button></div>
+    <div class="item"><div><span class="uz">Dorixona qayerda?</span><span class="en">Where is the pharmacy?</span></div><button class="btn-play" onclick="playSpeech('Dorixona qayerda')">▶</button></div>
+    <div class="item"><div><span class="uz">Shifokor kerak</span><span class="en">Need a doctor</span></div><button class="btn-play" onclick="playSpeech('Shifokor kerak')">▶</button></div>
+    <div class="item"><div><span class="uz">Tez yordam</span><span class="en">Ambulance</span></div><button class="btn-play" onclick="playSpeech('Tez yordam')">▶</button></div>
+    <div class="item"><div><span class="uz">Og‘riyapti</span><span class="en">It hurts</span></div><button class="btn-play" onclick="playSpeech('Ogriyapti')">▶</button></div>
+    <div class="item"><div><span class="uz">Yo‘qolib qoldim</span><span class="en">I am lost</span></div><button class="btn-play" onclick="playSpeech('Yoqolib qoldim')">▶</button></div>
+    <div class="item"><div><span class="uz">Telefoningizni bering</span><span class="en">May I use your phone?</span></div><button class="btn-play" onclick="playSpeech('Telefoningizni bering')">▶</button></div>
+    <div class="item"><div><span class="uz">Politsiya</span><span class="en">Police</span></div><button class="btn-play" onclick="playSpeech('Politsiya')">▶</button></div>
+    <div class="item"><div><span class="uz">Elchixona</span><span class="en">Embassy</span></div><button class="btn-play" onclick="playSpeech('Elchixona')">▶</button></div>
+  </div>
+
+</div>
+
+<script>
+  // BO'LIMLARNI ALMASHTIRISH
+  function showUnit(num, btn) {
+    var panels = document.querySelectorAll('.unit-panel');
+    for (var i = 0; i < panels.length; i++) {
+      panels[i].classList.remove('show');
+    }
+    var tabs = document.querySelectorAll('.tab');
+    for (var j = 0; j < tabs.length; j++) {
+      tabs[j].classList.remove('active');
+    }
+    document.getElementById('u' + num).classList.add('show');
+    btn.classList.add('active');
+  }
+
+  // OVOZ CHIQARISH (Oddiy va to'g'ridan-to'g'ri)
+  function playSpeech(text) {
+    if ('speechSynthesis' in window) {
+      window.speechSynthesis.cancel();
+      var msg = new SpeechSynthesisUtterance(text);
+      msg.rate = 0.85;
+      window.speechSynthesis.speak(msg);
+    } else {
+      alert("Qurilmangizda nutq qo'llab-quvvatlanmaydi.");
+    }
+  }
+</script>
+
+</body>
+  </html>
+  
