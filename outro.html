@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Page 10: Outro & Digital Hub</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary-navy: #0b3c5d;
+      --accent-gold: #c68a4c;
+      --text-main: #1f2937;
+      --text-muted: #4b5563;
+      --paper-border: #e5e7eb;
+      --light-gold: #fbf5ef;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #eef2f6;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      color: var(--text-main);
+      display: flex;
+      justify-content: center;
+      padding: 24px 12px;
+      line-height: 1.35;
+    }
+
+    /* A5 Kitob varog'i */
+    .book-page {
+      background: #ffffff;
+      width: 100%;
+      max-width: 540px;
+      min-height: 760px;
+      border-radius: 12px;
+      box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08), 0 2px 5px rgba(0,0,0,0.05);
+      border: 1px solid var(--paper-border);
+      padding: 26px 24px 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      position: relative;
+    }
+
+    .book-page::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 24px;
+      right: 24px;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--primary-navy), transparent);
+      opacity: 0.7;
+    }
+
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1.5px solid #f1f5f9;
+      padding-bottom: 6px;
+      margin-bottom: 12px;
+    }
+
+    .book-title {
+      font-size: 10.5px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--primary-navy);
+    }
+
+    .chapter-tag {
+      font-size: 10.5px;
+      font-weight: 600;
+      color: var(--primary-navy);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Muallifdan tilak bloki */
+    .author-note {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    .author-note h2 {
+      font-family: 'Playfair Display', serif;
+      color: var(--primary-navy);
+      font-size: 20px;
+      margin-bottom: 6px;
+    }
+
+    .author-note p {
+      font-size: 11px;
+      color: var(--text-muted);
+      line-height: 1.4;
+      padding: 0 15px;
+    }
+
+    /* O'ZBEK VA INGLIZ TILIDAGI AUDIO TUSHUNTIRISH BLOKI */
+    .bilingual-hub {
+      background: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-top: 4px solid var(--primary-navy);
+      border-radius: 10px;
+      padding: 18px 16px;
+      margin-bottom: 16px;
+    }
+
+    .hub-title {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      text-align: center;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .lang-section {
+      margin-bottom: 12px;
+      padding-bottom: 10px;
+      border-bottom: 1px dashed #cbd5e1;
+    }
+
+    .lang-section:last-of-type {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .lang-title {
+      font-size: 11.5px;
+      font-weight: 700;
+      color: var(--primary-navy);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .lang-text {
+      font-size: 11px;
+      color: #334155;
+      line-height: 1.4;
+    }
+
+    /* QR KOD UCHUN VAQTINCHALIK JOY (PLACEHOLDER) */
+    .qr-placeholder {
+      width: 140px;
+      height: 140px;
+      margin: 16px auto;
+      background: var(--light-gold);
+      border: 3px dashed var(--accent-gold);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: var(--accent-gold);
+      font-weight: 700;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+    }
+
+    .project-details {
+      text-align: center;
+      font-size: 10px;
+      color: #64748b;
+      margin-top: 10px;
+    }
+
+    .project-details strong {
+      color: var(--primary-navy);
+    }
+
+    /* Sahifaning pastki qismi */
+    .page-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1.5px solid #f1f5f9;
+      padding-top: 10px;
+      margin-top: auto;
+    }
+
+    .page-number {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--primary-navy);
+    }
+
+    .page-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .btn-nav {
+      font-size: 11px;
+      font-weight: 700;
+      text-decoration: none;
+      color: var(--primary-navy);
+      padding: 5px 12px;
+      border-radius: 20px;
+      border: 1px solid var(--paper-border);
+      background: #fafafa;
+      transition: 0.2s;
+    }
+
+    .btn-nav.start {
+      background: var(--primary-navy);
+      color: #ffffff;
+      border-color: var(--primary-navy);
+    }
+  </style>
+</head>
+<body>
+
+  <div class="book-page">
+
+    <div class="page-header">
+      <span class="book-title">Til Ko‘prigi • Pocket Guide</span>
+      <span class="chapter-tag">Outro</span>
+    </div>
+
+    <div>
+      <div class="author-note">
+        <h2>Oq Yo‘l! (Safe Travels)</h2>
+        <p>Thank you for exploring the beauty of the Uzbek language. Language is the ultimate bridge between cultures. I hope this guide makes your journey through Uzbekistan warmer, safer, and full of wonderful memories.</p>
+      </div>
+
+      <!-- Audio Tushuntirish va QR Kod Qismi -->
+      <div class="bilingual-hub">
+        <div class="hub-title">🎧 Digital Audio Hub</div>
+
+        <!-- Inglizcha tushuntirish -->
+        <div class="lang-section">
+          <div class="lang-title">🇬🇧 For Tourists</div>
+          <div class="lang-text">Scan the QR code below with your smartphone camera to access our interactive Audio Hub. You can listen to the correct pronunciation of all the phrases in this pocket guide.</div>
+        </div>
+
+        <!-- O'zbekcha tushuntirish -->
+        <div class="lang-section">
+          <div class="lang-title">🇺🇿 Sayyohlar uchun</div>
+          <div class="lang-text">Ushbu kitobchadagi barcha iboralarning to'g'ri talaffuzini onlayn eshitish uchun quyidagi QR kodni telefoningiz kamerasiga tuting. Hamma ovozlar o'zbek tilida tayyorlangan.</div>
+        </div>
+
+        <!-- VAQTINCHALIK QR KOD JOYI -->
+        <div class="qr-placeholder">
+          QR KOD<br>UCHUN JOY<br>(140x140)
+        </div>
+
+        <div class="project-details">
+          <strong>Project:</strong> "Til Ko'prigi" Digital Guide<br>
+          <strong>Author:</strong> Sabrina | Navoi, 2026
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Sahifa footer -->
+    <div class="page-footer">
+      <span class="page-number">Page 10</span>
+      <div class="page-actions">
+        <a href="unit7.html" class="btn-nav">← Unit 7</a>
+        <a href="index.html" class="btn-nav start">↺ Finish</a>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+    </html>
+  
